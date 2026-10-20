@@ -1,0 +1,117 @@
+.beaconWrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1-5) var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+  transition: background-color var(--duration-normal) var(--ease-settle),
+              border-color var(--duration-normal) var(--ease-settle),
+              color var(--duration-normal) var(--ease-settle);
+  user-select: none;
+}
+
+.beaconDotWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 8px;
+  height: 8px;
+}
+
+.beaconDot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background-color: var(--status-disconnected);
+  transition: background-color var(--duration-normal) var(--ease-settle);
+}
+
+.beaconPulse {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Status: Connected */
+.statusConnected {
+  background: var(--status-connected-bg);
+  border-color: var(--status-connected-border);
+  color: var(--status-connected);
+}
+.statusConnected .beaconDot {
+  background-color: var(--status-connected);
+}
+.statusConnected .beaconPulse {
+  background-color: var(--status-connected);
+  animation: pulseBeacon 2.8s infinite ease-out;
+}
+
+/* Status: Pairing (Awaiting code entry) */
+.statusPairing {
+  background: var(--status-pairing-bg);
+  border-color: var(--status-pairing-border);
+  color: var(--status-pairing);
+}
+.statusPairing .beaconDot {
+  background-color: var(--status-pairing);
+}
+.statusPairing .beaconPulse {
+  background-color: var(--status-pairing);
+  animation: pulseBeacon 1.4s infinite ease-out;
+}
+
+/* Status: Disconnected */
+.statusDisconnected {
+  background: var(--status-disconnected-bg);
+  border-color: var(--status-disconnected-border);
+  color: var(--text-tertiary);
+}
+.statusDisconnected .beaconDot {
+  background-color: var(--status-disconnected);
+}
+
+/* Status: Error */
+.statusError {
+  background: var(--status-error-bg);
+  border-color: var(--status-error-border);
+  color: var(--status-error);
+}
+.statusError .beaconDot {
+  background-color: var(--status-error);
+}
+.statusError .beaconPulse {
+  background-color: var(--status-error);
+  animation: pulseBeacon 1.8s infinite ease-out;
+}
+
+@keyframes pulseBeacon {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  70% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .beaconPulse {
+    animation: none !important;
+  }
+}

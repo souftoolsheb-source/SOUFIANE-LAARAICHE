@@ -1,0 +1,27 @@
+@import "../styles/tokens.css";
+
+/* Universal Layout & Accessibility Defaults */
+::selection {
+  background-color: var(--accent-emerald);
+  color: var(--text-on-accent);
+}
+
+/* Custom Scrollbar for Sleek Dark Surfaces */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-canvas);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-highlight);
+  border-radius: var(--radius-xs);
+  border: 2px solid var(--bg-canvas);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-medium);
+}

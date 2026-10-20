@@ -1,0 +1,58 @@
+.logoContainer {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  text-decoration: none;
+  user-select: none;
+  transition: opacity var(--duration-fast) var(--ease-settle);
+}
+
+.logoContainer:hover {
+  opacity: 0.9;
+}
+
+.iconWrapper {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  flex-shrink: 0;
+  transition: border-color var(--duration-fast) var(--ease-settle), transform var(--duration-fast) var(--ease-settle);
+}
+
+.logoContainer:hover .iconWrapper {
+  border-color: var(--accent-emerald-border);
+  transform: translateY(-1px);
+}
+
+.svgIcon {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
+.textGroup {
+  display: flex;
+  flex-direction: column;
+  line-height: var(--line-height-tight);
+}
+
+.brandName {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.brandKicker {
+  font-size: var(--font-size-xs);
+  color: var(--text-tertiary);
+  white-space: nowrap;
+}

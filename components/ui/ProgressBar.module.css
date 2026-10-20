@@ -1,0 +1,53 @@
+.progressContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1-5);
+  width: 100%;
+}
+
+.labelRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+}
+
+.track {
+  width: 100%;
+  height: 6px;
+  background-color: var(--bg-highlight);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  position: relative;
+}
+
+.fill {
+  height: 100%;
+  background-color: var(--accent-emerald);
+  border-radius: var(--radius-full);
+  transition: width var(--duration-normal) var(--ease-settle);
+  transform-origin: right center;
+}
+
+.fillIndeterminate {
+  width: 40% !important;
+  animation: indeterminateProgress 1.6s infinite ease-in-out;
+}
+
+@keyframes indeterminateProgress {
+  0% {
+    transform: translateX(120%);
+  }
+  100% {
+    transform: translateX(-240%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fillIndeterminate {
+    animation: none;
+    width: 100% !important;
+    opacity: 0.6;
+  }
+}
